@@ -1,0 +1,9 @@
+import streamlit as st
+import pandas as pd
+import requests
+import math
+import os
+import io
+import zipfile
+
+**Python Version**: This project was developed using Python 3.10. Make sure you have Python 3.6 or higher installed.
