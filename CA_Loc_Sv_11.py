@@ -79,8 +79,8 @@ def download_street_view_image(pano_id, heading, location_name, output_dir):
 def main():
     st.set_page_config(page_title="Street View Image Downloader", layout="wide")
 
-    # Add a placeholder for the image on the front page
-    st.image('Img1.png', use_column_width=True)  # Replace 'placeholder.png' with your image file
+    # Replace use_column_width with use_container_width to avoid deprecation issues
+    st.image('Img1.png', use_container_width=True)  # Updated parameter here
 
     st.title("Loci - Your Ultimate Street View Inspection Site Downloader")
 
@@ -93,7 +93,7 @@ def main():
 
     # CSV File Upload with modified label
     uploaded_file = st.file_uploader(
-        "Upload CSV file with latitude and longitude coordinates in seperate columns - REMINDER: ENSURE THAT THE LATITUDE AND LONGITUDE COORDINATES ARE ACCURATE TO THE LOCATION YOU WANT TO INSPECT. After your  location images are presented, click the Download button positioned below the last image. ",
+        "Upload CSV file with latitude and longitude coordinates in separate columns - REMINDER: ENSURE THAT THE LATITUDE AND LONGITUDE COORDINATES ARE ACCURATE TO THE LOCATION YOU WANT TO INSPECT. After your location images are presented, click the Download button positioned below the last image.",
         type=['csv']
     )
 
@@ -158,7 +158,7 @@ def main():
         # Display images
         for name, img_path in images_downloaded:
             st.subheader(name)
-            st.image(img_path)
+            st.image(img_path)  # You can also use use_container_width=True here if desired
 
         # Create a ZIP file of all images
         zip_buffer = io.BytesIO()
